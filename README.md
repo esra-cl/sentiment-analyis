@@ -39,3 +39,6 @@ Generating the Conclusion: Finally, the topic is passed to the T5 (Text-to-Text)
     
 The client will prompt you to enter the details 
 of the topic event. Wait for the server to process the topic text and return the event message.
+
+***NOT! 
+ run the .ipynb files to save the models and use it . 
