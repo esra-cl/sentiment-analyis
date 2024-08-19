@@ -1,0 +1,25 @@
+syntax = "proto3";  // Specifies the syntax version of the proto file
+
+package eventdriven;  // Define a package name (optional, but recommended)
+
+// Message definition for an event
+message Event {
+    string event_id = 1;  // Unique ID for the event
+    string event_type = 2;  // Type of the event
+    string payload = 3;  // The event's payload, typically a JSON string or other data
+    string timestamp = 4;  // Timestamp of the event
+}
+
+// Message definition for the response
+message EventResponse {
+    string status = 1;  // Status of the event processing (e.g., success or failure)
+}
+
+// Service definition for the gRPC service
+service EventService {
+    // Method that allows event producers to send events
+    rpc SendEvent(Event) returns (EventResponse);
+
+    // Method that allows event consumers to receive events
+    rpc ReceiveEvents(Event) returns (stream EventResponse);
+}
